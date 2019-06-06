@@ -4,3 +4,13 @@
     padding-top: 50px;
   }
 }
+.body-content {
+  background-color: #f1f2f7;
+  height: 100vh;
+}
+.header {
+  position: fixed;
+}
+.body-content {
+  margin-top: 55px;
+}

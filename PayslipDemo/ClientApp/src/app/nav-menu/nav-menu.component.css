@@ -17,6 +17,7 @@ li.link-active a:focus {
     left: 0;
     right: 0;
     z-index: 1;
+    margin-top: 55px;
 }
 
 @media (min-width: 768px) {
@@ -26,15 +27,16 @@ li.link-active a:focus {
         width: calc(25% - 20px);
     }
     .navbar {
-        border-radius: 0px;
+      -ms-border-radius: 0px;
+      border-radius: 0px;
         border-width: 0px;
         height: 100%;
     }
-    .navbar-header {
+
+  .navbar-header {
         float: none;
     }
     .navbar-collapse {
-        border-top: 1px solid #444;
         padding: 0px;
     }
     .navbar ul {

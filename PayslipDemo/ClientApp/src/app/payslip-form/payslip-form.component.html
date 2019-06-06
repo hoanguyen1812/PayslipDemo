@@ -1,0 +1,57 @@
+<div class="container-payslip">
+<h1>Manage Issued Payslips</h1>
+<div class="row">
+  <div class="col-sm-2">
+    <label>Payslip</label>
+    <div class="form-group">
+      <input type="text" class="form-control" (change)="onMakeChange()" [(ngModel)]="payslipId">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <label>Payment Period</label>
+
+    <div class="form-group">
+      <input type="date" class="col-sm-6 form-control" style="width: 50%;">
+      <input type="date" class="col-lg-6 form-control" style="width: 50%;">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <label>Pay Date</label>
+    <div class="form-group">
+      <input type="date" class="form-control">
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <button type="button" class="btn btn-primary">Clear</button>
+  </div>
+</div>
+
+<div>
+  <div class="card">
+    <div class="card-body">
+      <table id="bootstrap-data-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Payslip</th>
+            <th>Payment Period</th>
+            <th>Payment Date</th>
+            <th>Net Pay</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of payslips">
+            <td>{{ p.id }}</td>
+            <td>{{ p.paymentPeriodStartDate | date:'dd/mm/yyyy' }} - {{ p.paymentPeriodEndDate | date:'dd/mm/yyyy' }}</td>
+            <td>{{ p.paymentDate | date:'dd/mm/yyyy hh:mm:ss'}}</td>
+            <td>{{ p.payNet }}</td>
+            <td>{{ p.status }}</td>
+            <td><a href="/api/payslips">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

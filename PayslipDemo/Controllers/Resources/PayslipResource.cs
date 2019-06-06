@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using PayslipDemo.Models;
 
-namespace PayslipDemo.Models
+namespace PayslipDemo.Controllers.Resources
 {
-    public class Payslip
+    public class PayslipResource
     {
         public int Id { get; set; }
         public DateTime PaymentPeriodStartDate { get; set; }
         public DateTime PaymentPeriodEndDate { get; set; }
         public DateTime PaymentDate { get; set; }
-        public PayslipStatus Status { get; set; }
         public int PayNet { get; set; }
-        public ModeOfPayment ModeOfPayment { get; set; }
         public int? ChequeNumber { get; set; }
         public int EmployeeContribution { get; set; }
         public int EmployerContribution { get; set; }
-        public int PayslipTypeId { get; set; }
-        public PayslipType PayslipType { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
+        public int PayslipTypeId { get; set; }
+        public PayslipStatus Status { get; set; }
     }
 }
