@@ -2317,11 +2317,6 @@ header .form-inline {
   font-weight: 300;
 }
 
-.fontawesome-icon-list i {
-  font-style: 16px;
-  padding-right: 10px;
-}
-
 .social-box i {
   line-height: 110px;
 }
@@ -3466,6 +3461,6 @@ footer.site-footer {
   right: 0;
   top: 0;  
   z-index: 999;
-  
+  background-color: #fff;
 } 
 /*# sourceMappingURL=style.css.map */

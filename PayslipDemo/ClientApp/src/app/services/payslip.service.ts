@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PayslipService {
@@ -9,5 +8,9 @@ export class PayslipService {
   }
   getPayslips() {
     return this.http.get('/api/payslips');
+  }
+
+  create(payslip) {
+    return this.http.post('/api/payslips', payslip);
   }
 }

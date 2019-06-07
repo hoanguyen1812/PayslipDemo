@@ -1,1 +1,24 @@
-﻿
+.payslip-new {
+  background-color: #fff;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 5px;
+  border-top: 3px red solid;
+}
+
+.float-right {
+  float: right;
+  margin-right: 5px;
+}
+
+  .form-create {
+    margin-top: 10px;
+  }
+
+option:first {
+  color: #999;
+}
+
+.required {
+  color: red;
+}

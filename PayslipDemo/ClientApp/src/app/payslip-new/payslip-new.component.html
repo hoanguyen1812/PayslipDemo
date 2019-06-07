@@ -1,16 +1,69 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="payslip-new col-sm-12">
+  <form #f="ngForm" class="form-create" (ngSubmit)="submit()" novalidate>
+    <div class="form-group row col-sm-9">
+      <label class="col-sm-4" style="font-size: 20px;">Create Payslip for</label>
+      <div class="col-sm-6">
+        <select class="form-control" [(ngModel)]="payslip.userId" name="userId" required>
+          <option value="" disabled selected>Employee Name</option>
+          <option *ngFor="let u of users" value="{{ u.id }}">{{ u.name }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-12">
+      <label>On-Time Basic Information</label>
+      <br/>
+      <small>You just need to enter the information for the first time and the same information will be reflect for subsequent payslips. You may change the information when required, or copy this information from previous month</small>
+    </div>
+
+    <div class="form-group row col-sm-12">
+      <div class="col-sm-3">
+        <label class="col-form-label">Basic Pay<span class="required">*</span></label>
+        <input type="number" class="form-control" [(ngModel)]="payslip.payNet" name="payNet" required #payNet="ngModel">
+        <div class="alert alert-danger" *ngIf="payNet.touched && !payNet.valid">Please specify basic date</div>
+      </div>
+
+      <div class="col-sm-3">
+        <label class="col-form-label">Date of Payment<span class="required">*</span></label>
+        <input type="date" class="form-control" [(ngModel)]="payslip.paymentDate" name="paymentDate" required #payDate ="ngModel">
+        <div class="alert alert-danger" *ngIf="payDate.touched && !payDate.valid">Please specify payment date</div>
+      </div>
+
+      <div class="col-sm-3">
+        <label class="col-form-label">Payment Period From<span class="required">*</span></label>
+        <input type="date" class="form-control" [(ngModel)]="payslip.paymentPeriodStartDate" name="paymentPeriodStartDate" required #fromDate="ngModel">
+        <div class="alert alert-danger" *ngIf="fromDate.touched && !fromDate.valid">Please specify payment period date</div>
+      </div>
+
+      <div class="col-sm-3">
+        <label class="col-form-label">Payment Period To<span class="required">*</span></label>
+        <input type="date" class="form-control" [(ngModel)]="payslip.paymentPeriodEndDate" name="paymentPeriodEndDate" required #toDate="ngModel">
+        <div class="alert alert-danger" *ngIf="toDate.touched && !toDate.valid">Please specify payment period date</div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12">
+      <label>Mode of Payment</label>
+    </div>
+
+    <div class="form-group col-sm-12 row">
+      <div class="col-sm-4">
+        <input type="radio" value=0 [(ngModel)]="payslip.payslipTypeId" name="payslipTypeId" (click)="onChange()"/>
+        <label>Bank Deposit</label>
+        <input type="radio" value=1 [(ngModel)]="payslip.payslipTypeId" name="payslipTypeId" (click)="onChange()"/>
+        <label>Cash</label>
+        <input type="radio" value=2 [(ngModel)]="payslip.payslipTypeId" name="payslipTypeId" (click)="onChange()"/>
+        <label>Cheque</label>
+      </div>
+      <div class="col-sm-3" style="margin-left: -35px;">
+        <input class="form-control" placeholder="Cheque Number" [(ngModel)]="payslip.chequeNumber" name="chequeNumber" *ngIf="payslip.payslipTypeId == 2"/>
+      </div>
+    </div>
+    <div class="form-group col-sm-12">
+      <button type="reset" class="btn btn-primary">Cancel</button>
+      <button type="submit" class="btn btn-primary float-right" [disabled]="!f.valid">Save And Review</button>
+      <button type="submit" class="btn btn-primary float-right" [disabled]="!f.valid">Save As Draft</button>
+    </div>
+  </form>
+</div>

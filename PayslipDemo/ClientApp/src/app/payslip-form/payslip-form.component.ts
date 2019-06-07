@@ -15,11 +15,8 @@ export class PayslipFormComponent implements OnInit {
       
   }
     ngOnInit() {
-      this.payslipService.getPayslips().subscribe(payslips => {
-        this.payslips = payslips;
-        console.log("MAKE", this.payslips);
-      });
-  }
+      this.payslipService.getPayslips().subscribe(payslips => this.payslips = payslips);
+    }
   onMakeChange() {
     console.log(this.payslipId);
   }

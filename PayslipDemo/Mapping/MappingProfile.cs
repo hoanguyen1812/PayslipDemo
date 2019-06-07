@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using PayslipDemo.Controllers.Resources;
 using PayslipDemo.Models;
 
@@ -13,6 +9,7 @@ namespace PayslipDemo.Mapping
         public MappingProfile()
         {
             CreateMap<Payslip, PayslipResource>();
+            CreateMap<PayslipResource, Payslip>();
             CreateMap<User, UserResource>();
         }
     }
