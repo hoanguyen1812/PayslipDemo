@@ -16,7 +16,8 @@ export class PayslipNewComponent implements OnInit {
     paymentPeriodEndDate: "",
     paymentDate: "",
     payslipTypeId: "",
-    chequeNumber: ""
+    chequeNumber: "",
+    status
   };
 
   /** payslip-new ctor */
@@ -35,6 +36,7 @@ export class PayslipNewComponent implements OnInit {
   }
 
   submit() {
+    this.payslip.status = '1';
     this.payslipService.create(this.payslip)
       .subscribe(
         success => this.toastyService.success(

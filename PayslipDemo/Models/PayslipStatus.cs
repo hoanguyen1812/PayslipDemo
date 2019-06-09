@@ -8,7 +8,6 @@ namespace PayslipDemo.Models
     public enum PayslipStatus
     {
         Draft,
-        Issue,
-        Paid
+        Issued
     }
 }

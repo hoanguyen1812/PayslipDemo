@@ -6,29 +6,29 @@
     <div class="col-sm-2">
       <label>Payslip</label>
       <div class="form-group">
-        <input type="text" class="form-control" (change)="onMakeChange()" [(ngModel)]="payslipId">
+        <input type="text" class="form-control" (change)="onChange(payslipId)" [(ngModel)]="payslipId">
       </div>
     </div>
     <div class="col-sm-3">
       <label>Payment Period From</label>
       <div class="form-group">
-        <input type="date" class="form-control">
+        <input type="date" class="form-control" [(ngModel)]="paymentPeriodFrom">
       </div>
     </div>
     <div class="col-sm-3">
       <div class="form-group">
         <label>Payment Period To</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control" [(ngModel)]="paymentPeriodTo">
       </div>
     </div>
     <div class="col-sm-3">
       <label>Pay Date</label>
       <div class="form-group">
-        <input type="date" class="form-control">
+        <input type="date" class="form-control" [(ngModel)]="payDate">
       </div>
     </div>
     <div class="clear-button">
-      <button type="button" class="btn btn-primary">Clear</button>
+      <button type="button" class="btn btn-primary" (click)="clear()">Clear</button>
     </div>
   </div>
 
@@ -54,7 +54,8 @@
             <td>{{ p.payNet }}</td>
             <td>{{ p.statusDescription }}</td>
             <td>
-              <a href="/api/payslips/{{ p.id }}">Delete</a>
+              <button type=button class="btn-link" (click)="clickMethod(p.id)" *ngIf="p.status === 0" style="color: red">Delete</button>
+              <button type=button class="btn-link" (click)="clickMethod(p.id)" *ngIf="p.status === 1" style="color: red">Void</button>
             </td>
           </tr>
           </tbody>

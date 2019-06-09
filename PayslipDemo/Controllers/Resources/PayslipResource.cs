@@ -23,6 +23,7 @@ namespace PayslipDemo.Controllers.Resources
         public int? ChequeNumber { get; set; }
         public int? EmployeeContribution { get; set; }
         public int? EmployerContribution { get; set; }
+        public ModeOfPayment ModeOfPayment { get; set; }
 
         [Required]
         public int UserId { get; set; }

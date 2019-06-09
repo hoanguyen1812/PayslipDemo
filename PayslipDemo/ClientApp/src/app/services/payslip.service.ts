@@ -13,4 +13,12 @@ export class PayslipService {
   create(payslip) {
     return this.http.post('/api/payslips', payslip);
   }
+
+  getPayslip(id) {
+    return this.http.get('/api/payslips/' + id);
+  }
+
+  delete(id) {
+    return this.http.delete('/api/payslips/' + id);
+  }
 }

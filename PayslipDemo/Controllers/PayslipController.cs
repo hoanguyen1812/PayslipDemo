@@ -70,5 +70,28 @@ namespace PayslipDemo.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdatePayslip([FromBody] PayslipResource payslipResource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var payslipIdDb = await _context.Payslips.Include(a => a.User)
+                .Include(a => a.PayslipType).SingleAsync(a => a.Id == payslipResource.Id);
+            payslipIdDb.PaymentPeriodStartDate = payslipResource.PaymentPeriodStartDate;
+            payslipIdDb.PaymentPeriodEndDate = payslipResource.PaymentPeriodEndDate;
+            payslipIdDb.PaymentDate = payslipResource.PaymentDate;
+            payslipIdDb.PayNet = payslipResource.PayNet;
+            payslipIdDb.ModeOfPayment = payslipResource.ModeOfPayment;
+            payslipIdDb.ChequeNumber = payslipResource.ChequeNumber;
+            payslipIdDb.EmployeeContribution = payslipResource.EmployeeContribution.GetValueOrDefault();
+            payslipIdDb.EmployerContribution = payslipResource.EmployerContribution.GetValueOrDefault();
+            payslipIdDb.PayslipTypeId = payslipResource.PayslipTypeId;
+            payslipIdDb.UserId = payslipResource.UserId;
+            await _context.SaveChangesAsync();
+
+            return Ok(_mapper.Map<PayslipResource>(payslipIdDb));
+        }
     }
 }
