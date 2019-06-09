@@ -21,4 +21,8 @@ export class PayslipService {
   delete(id) {
     return this.http.delete('/api/payslips/' + id);
   }
+
+  updatePayslip(payslip) {
+    return this.http.put("/api/payslips", payslip);
+  }
 }

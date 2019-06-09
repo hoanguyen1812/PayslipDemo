@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+  {{title}}
+</h1>
+
+<div mat-dialog-content>
+  <label>Name:</label><span> {{ payslip.user.name }}</span> <br />
+  <label>Payslip:</label><span> {{ payslip.id }}</span> <br />
+  <label>Payment Period:</label><span> {{ payslip.paymentPeriodStartDate | date:'dd/MM/yyyy' }} - {{ payslip.paymentPeriodEndDate | date:'dd/MM/yyyy' }}</span> <br />
+  <label>Payment Date:</label><span> {{ payslip.paymentDate | date:'dd/MM/yyyy'}}</span> <br />
+  <label>Basic Pay:</label><span> {{ payslip.payNet }}</span> <br />
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onDismiss()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onConfirm()">Delete</button>
+</div>

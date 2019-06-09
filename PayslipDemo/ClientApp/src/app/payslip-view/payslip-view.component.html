@@ -12,7 +12,7 @@
 
     <div class="form-group col-sm-12">
       <label>On-Time Basic Information</label>
-      <br/>
+      <br />
       <small>You just need to enter the information for the first time and the same information will be reflect for subsequent payslips. You may change the information when required, or copy this information from previous month</small>
     </div>
 
@@ -25,7 +25,7 @@
 
       <div class="col-sm-3">
         <label class="col-form-label">Date of Payment <span class="required">*</span></label>
-        <input type="date" class="form-control" [(ngModel)]="payslip.paymentDate" name="paymentDate" required #payDate ="ngModel">
+        <input type="date" class="form-control" [(ngModel)]="payslip.paymentDate" name="paymentDate" required #payDate="ngModel">
         <div class="alert alert-danger" *ngIf="payDate.touched && !payDate.valid">Please specify payment date</div>
       </div>
 
@@ -49,15 +49,15 @@
 
     <div class="form-group col-sm-12 row">
       <div class="col-sm-4">
-        <input type="radio" value=0 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()"/>
+        <input type="radio" value=0 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()" />
         <label>Bank Deposit</label>
-        <input type="radio" value=1 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()"/>
+        <input type="radio" value=1 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()" />
         <label>Cash</label>
-        <input type="radio" value=2 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()"/>
+        <input type="radio" value=2 [(ngModel)]="payslip.payslipTypeId" required name="payslipTypeId" (click)="onChange()" />
         <label>Cheque</label>
       </div>
       <div class="col-sm-3" style="margin-left: -35px;">
-        <input class="form-control" placeholder="Cheque Number" [(ngModel)]="payslip.chequeNumber" name="chequeNumber" *ngIf="payslip.payslipTypeId == 2" [required]="payslip.payslipTypeId == 2"/>
+        <input class="form-control" placeholder="Cheque Number" [(ngModel)]="payslip.chequeNumber" name="chequeNumber" *ngIf="payslip.payslipTypeId == 2" [required]="payslip.payslipTypeId == 2" />
       </div>
     </div>
     <div class="form-group col-sm-12">

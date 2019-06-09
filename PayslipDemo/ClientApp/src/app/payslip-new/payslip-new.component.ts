@@ -56,4 +56,26 @@ export class PayslipNewComponent implements OnInit {
             timeout: 5000
           }));
   }
+
+  saveAsDraft() {
+    this.payslip.status = '0';
+    this.payslipService.create(this.payslip)
+      .subscribe(
+        success => this.toastyService.success(
+          {
+            title: 'Success',
+            msg: 'Data was successfully saved.',
+            theme: 'bootstrap',
+            showClose: true,
+            timeout: 5000
+          })
+        , error => this.toastyService.error(
+          {
+            title: 'Error',
+            msg: 'An unexpected error.',
+            theme: 'bootstrap',
+            showClose: true,
+            timeout: 5000
+          }));
+  }
 }

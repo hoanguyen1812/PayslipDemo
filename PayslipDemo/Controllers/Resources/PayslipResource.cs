@@ -27,6 +27,7 @@ namespace PayslipDemo.Controllers.Resources
 
         [Required]
         public int UserId { get; set; }
+        public User User { get; set; }
         public int PayslipTypeId { get; set; }
         public string StatusDescription { get; set; }
         public PayslipStatus Status { get; set; }

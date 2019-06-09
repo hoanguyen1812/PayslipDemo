@@ -89,6 +89,7 @@ namespace PayslipDemo.Controllers
             payslipIdDb.EmployerContribution = payslipResource.EmployerContribution.GetValueOrDefault();
             payslipIdDb.PayslipTypeId = payslipResource.PayslipTypeId;
             payslipIdDb.UserId = payslipResource.UserId;
+            payslipIdDb.Status = payslipResource.Status;
             await _context.SaveChangesAsync();
 
             return Ok(_mapper.Map<PayslipResource>(payslipIdDb));

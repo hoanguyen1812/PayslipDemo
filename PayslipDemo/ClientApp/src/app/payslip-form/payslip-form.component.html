@@ -54,8 +54,9 @@
             <td>{{ p.payNet }}</td>
             <td>{{ p.statusDescription }}</td>
             <td>
-              <button type=button class="btn-link" (click)="clickMethod(p.id)" *ngIf="p.status === 0" style="color: red">Delete</button>
-              <button type=button class="btn-link" (click)="clickMethod(p.id)" *ngIf="p.status === 1" style="color: red">Void</button>
+                <a [routerLink]="['/payslip-view/', p.id]" *ngIf="p.status === 0">View</a>
+                <button type=button class="btn-link" (click)="deletePayslip(p)" *ngIf="p.status === 0" style="color: red">Delete</button>
+                <button type=button class="btn-link" (click)="updateStatusToVoid(p)" *ngIf="p.status === 1" style="color: red">Void</button>
             </td>
           </tr>
           </tbody>

@@ -1,13 +1,15 @@
-@media (max-width: 767px) {
-  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
-  .body-content {
-    margin-top: 55px;
-  }
-}
 .body-content {
   background-color: #f1f2f7;
   height: 100vh;
   padding-left: 0;
+}
+
+@media (max-width: 767px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  .body-content {
+    margin-top: 55px;
+    padding-left: 20px;
+  }
 }
 .header {
   position: fixed;
